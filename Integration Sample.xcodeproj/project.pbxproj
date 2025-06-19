@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		55554C2B2E0083E300D6B347 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 55554C2A2E0083DE00D6B347 /* Readme.md */; };
+		C58BFE262E034EC900C3470A /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = C58BFE252E034EC900C3470A /* Setapp */; };
+		C58BFE282E034F0F00C3470A /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = C58BFE272E034F0F00C3470A /* Setapp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +30,15 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"setappPublicKey-iOS.pem",
-				setappPublicKey.pem,
 			);
 			target = 55554C162E007E1800D6B347 /* Integration Sample (macOS) */;
+		};
+		C58BFE2B2E0351A700C3470A /* Exceptions for "Public Keys" folder in "Integration Sample (iOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"setappPublicKey-iOS.pem",
+			);
+			target = 55554C2F2E00851600D6B347 /* Integration Sample (iOS) */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -52,6 +60,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				55554C662E00885900D6B347 /* Exceptions for "Public Keys" folder in "Integration Sample (macOS)" target */,
+				C58BFE2B2E0351A700C3470A /* Exceptions for "Public Keys" folder in "Integration Sample (iOS)" target */,
 			);
 			path = "Public Keys";
 			sourceTree = "<group>";
@@ -63,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58BFE262E034EC900C3470A /* Setapp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58BFE282E034F0F00C3470A /* Setapp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +128,7 @@
 			);
 			name = "Integration Sample (macOS)";
 			packageProductDependencies = (
+				C58BFE252E034EC900C3470A /* Setapp */,
 			);
 			productName = "Integration Sample";
 			productReference = 55554C172E007E1800D6B347 /* Gemini.app */;
@@ -139,6 +151,7 @@
 			);
 			name = "Integration Sample (iOS)";
 			packageProductDependencies = (
+				C58BFE272E034F0F00C3470A /* Setapp */,
 			);
 			productName = "Integration Sample (iOS)";
 			productReference = 55554C302E00851600D6B347 /* Gemini.app */;
@@ -171,6 +184,9 @@
 			);
 			mainGroup = 55554C0E2E007E1800D6B347;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C58BFE242E034EC900C3470A /* XCRemoteSwiftPackageReference "Setapp-framework" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 55554C182E007E1800D6B347 /* Products */;
 			projectDirPath = "";
@@ -348,6 +364,7 @@
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Integration Sample (macOS)/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -358,7 +375,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.macpaw.Gemini;
+				OTHER_LDFLAGS = "\"$(inherited) -force_load \\\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\\\"\"";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.macpaw.Gemini-setapp";
 				PRODUCT_NAME = Gemini;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
@@ -382,6 +400,7 @@
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Integration Sample (macOS)/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -392,7 +411,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.macpaw.Gemini;
+				OTHER_LDFLAGS = "\"$(inherited) -force_load \\\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\\\"\"";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.macpaw.Gemini-setapp";
 				PRODUCT_NAME = Gemini;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
@@ -426,6 +446,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "\"$(inherited) -force_load \\\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\\\"\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.macpaw.iosgemini;
 				PRODUCT_NAME = Gemini;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -465,6 +486,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "\"$(inherited) -force_load \\\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\\\"\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.macpaw.iosgemini;
 				PRODUCT_NAME = Gemini;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -514,6 +536,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C58BFE242E034EC900C3470A /* XCRemoteSwiftPackageReference "Setapp-framework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/Setapp-framework.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C58BFE252E034EC900C3470A /* Setapp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C58BFE242E034EC900C3470A /* XCRemoteSwiftPackageReference "Setapp-framework" */;
+			productName = Setapp;
+		};
+		C58BFE272E034F0F00C3470A /* Setapp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C58BFE242E034EC900C3470A /* XCRemoteSwiftPackageReference "Setapp-framework" */;
+			productName = Setapp;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 55554C0F2E007E1800D6B347 /* Project object */;
 }

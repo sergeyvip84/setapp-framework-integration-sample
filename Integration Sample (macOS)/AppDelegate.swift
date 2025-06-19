@@ -6,12 +6,14 @@
 //
 
 import Cocoa
+import Setapp
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        
+        SetappManager.shared.showReleaseNotesWindowIfNeeded()
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
@@ -24,6 +26,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
+    }
+    
+    @IBAction private func showReleaseNotes(_ sender: Any) {
+      SetappManager.shared.showReleaseNotesWindow()
+    }
+    
+    func yourSigninCompletionHandler() {
+        
+        SetappManager.shared.reportUsageEvent(.signIn)
+    }
+    
+    func yourSignoutCompletionHandler() {
+        SetappManager.shared.reportUsageEvent(.signOut)
     }
 
 }
